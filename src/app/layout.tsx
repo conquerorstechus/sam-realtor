@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={jakarta.variable}>
-      <body className={`${jakarta.className} min-h-dvh`}>
+      <body suppressHydrationWarning className={`${jakarta.className} min-h-dvh`}>
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
