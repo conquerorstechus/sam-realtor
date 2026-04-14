@@ -1,0 +1,30 @@
+/* Design tokens: semantic colors for Tailwind v4 + shared CSS variables */
+
+:root {
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --shadow-elevated: 0 25px 55px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.25);
+  --ring-focus: 0 0 0 3px rgba(251, 191, 36, 0.45);
+}
+
+@theme {
+  /* Surfaces */
+  --color-bg: #070b14;
+  --color-surface: #0f172a;
+  --color-surface-2: #111c33;
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --color-text: #f8fafc;
+  --color-muted: #94a3b8;
+
+  /* Accents (high-energy) */
+  --color-accent: #f59e0b;
+  --color-accent-2: #fb7185;
+  --color-accent-ink: #0b1220;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
