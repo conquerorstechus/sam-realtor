@@ -5,7 +5,7 @@ import { formatUsd } from "@/lib/format";
 
 export function PropertyCard({ property }: { property: Property }) {
   return (
-    <article className="group overflow-hidden rounded-[var(--radius-2xl)] border border-white/10 bg-surface/40 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-white/20">
+    <article className="group overflow-hidden rounded-[var(--radius-2xl)] border border-black/8 bg-surface shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]">
       <Link href={`/properties/${property.slug}`} className="block">
         <div className="relative aspect-[16/11] overflow-hidden">
           <Image
@@ -16,14 +16,14 @@ export function PropertyCard({ property }: { property: Property }) {
             className="object-cover transition duration-500 group-hover:scale-[1.03]"
             priority={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
           <div className="absolute left-4 top-4 flex items-center gap-2">
-            {property.featured ? (
-              <span className="rounded-full bg-accent px-3 py-1 text-[11px] font-extrabold text-accent-ink">
+            {property.featured && (
+              <span className="rounded-full bg-gradient-to-r from-[#C63A2B] to-[#F28C45] px-3 py-1 text-[11px] font-extrabold text-white shadow-sm">
                 Featured
               </span>
-            ) : null}
-            <span className="rounded-full bg-black/40 px-3 py-1 text-[11px] font-semibold text-white ring-1 ring-white/15 backdrop-blur">
+            )}
+            <span className="rounded-full bg-black/50 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur">
               {property.propertyType}
             </span>
           </div>
@@ -36,15 +36,15 @@ export function PropertyCard({ property }: { property: Property }) {
         <div className="p-5">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-semibold text-muted">
             <span>{property.beds} beds</span>
-            <span className="text-white/20">•</span>
+            <span className="text-black/20">•</span>
             <span>{property.baths} baths</span>
-            <span className="text-white/20">•</span>
+            <span className="text-black/20">•</span>
             <span>{property.sqft.toLocaleString()} sqft</span>
           </div>
-          {property.tagline ? (
+          {property.tagline && (
             <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-text">{property.tagline}</p>
-          ) : null}
-          <div className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-accent">
+          )}
+          <div className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-accent-2">
             View details <span aria-hidden="true">→</span>
           </div>
         </div>

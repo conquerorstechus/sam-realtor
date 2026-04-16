@@ -14,13 +14,13 @@ export function FeaturedProperties({ properties }: { properties: Property[] }) {
               Properties engineered to stop the scroll.
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
-              Featured inventory rotates fast - if you want first look, tell us your must-haves and we
+              Featured inventory rotates fast — if you want first look, tell us your must-haves and we
               will route matches the moment they hit.
             </p>
           </div>
           <Link
             href="/properties"
-            className="inline-flex rounded-xl bg-white/5 px-5 py-3 text-sm font-extrabold text-text ring-1 ring-white/10 hover:bg-white/10"
+            className="inline-flex rounded-xl border border-black/10 bg-surface px-5 py-3 text-sm font-extrabold text-text shadow-[var(--shadow-soft)] transition hover:border-accent/40 hover:text-accent"
           >
             Browse all listings
           </Link>

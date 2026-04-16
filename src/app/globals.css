@@ -3,19 +3,19 @@
 
 @layer base {
   html {
-    color-scheme: dark;
+    color-scheme: light;
     scroll-behavior: smooth;
   }
 
   body {
     @apply bg-bg text-text antialiased;
     background-image:
-      radial-gradient(1200px circle at 10% 10%, rgba(245, 158, 11, 0.12), transparent 45%),
-      radial-gradient(900px circle at 90% 20%, rgba(251, 113, 133, 0.12), transparent 45%),
-      radial-gradient(900px circle at 50% 100%, rgba(59, 130, 246, 0.08), transparent 55%);
+      radial-gradient(900px circle at 5%  0%,  rgba(232,100,42,0.07),  transparent 45%),
+      radial-gradient(700px circle at 95% 10%,  rgba(31,164,99,0.06),  transparent 45%),
+      radial-gradient(800px circle at 50% 100%, rgba(232,100,42,0.05), transparent 55%);
   }
 
-  ::selection { background: rgba(245, 158, 11, 0.35); }
+  ::selection { background: rgba(232, 100, 42, 0.25); }
 
   a { @apply underline-offset-4; }
 
@@ -29,7 +29,6 @@
    HERO  –  3D Motion System
    ═══════════════════════════════════════════════════════════════ */
 
-/* Background 3D parallax drift */
 @keyframes hero-bg-drift {
   0%   { transform: scale(1.12) translateZ(0) translate(0px,   0px)   rotate(0deg);   }
   25%  { transform: scale(1.14) translateZ(0) translate(-8px, -4px)  rotate(0.3deg); }
@@ -37,34 +36,24 @@
   75%  { transform: scale(1.13) translateZ(0) translate(-6px,  10px) rotate(0.2deg); }
   100% { transform: scale(1.12) translateZ(0) translate(0px,   0px)   rotate(0deg);   }
 }
-
-/* Depth layer 1 – slow float */
 @keyframes hero-depth-1 {
   0%,100% { transform: translateZ(40px) translateY(0px)   scale(1.05); }
   50%     { transform: translateZ(40px) translateY(-12px) scale(1.05); }
 }
-
-/* Depth layer 2 – medium pulse */
 @keyframes hero-depth-2 {
-  0%,100% { transform: translateZ(80px) scale(1.0) translateY(0px);  opacity: 0.55; }
-  50%     { transform: translateZ(80px) scale(1.03) translateY(-8px); opacity: 0.75; }
+  0%,100% { transform: translateZ(80px) scale(1.0)  translateY(0px);   opacity: 0.55; }
+  50%     { transform: translateZ(80px) scale(1.03) translateY(-8px);  opacity: 0.75; }
 }
-
-/* Spotlight sweep */
 @keyframes hero-spotlight {
-  0%   { transform: translateX(-120%) skewX(-15deg); opacity: 0;   }
+  0%   { transform: translateX(-120%) skewX(-15deg); opacity: 0;  }
   8%   { opacity: 1; }
   92%  { opacity: 1; }
-  100% { transform: translateX(220%)  skewX(-15deg); opacity: 0;   }
+  100% { transform: translateX(220%)  skewX(-15deg); opacity: 0;  }
 }
-
-/* Sky shimmer */
 @keyframes hero-sky-shimmer {
   0%,100% { opacity: 0.15; }
   50%     { opacity: 0.35; }
 }
-
-/* Text entrance */
 @keyframes hero-fade-up {
   from { opacity: 0; transform: translateY(30px) translateZ(-10px); }
   to   { opacity: 1; transform: translateY(0)    translateZ(0);     }
@@ -73,34 +62,24 @@
   from { opacity: 0; transform: translateX(-24px); }
   to   { opacity: 1; transform: translateX(0);     }
 }
-
-/* Badge shimmer */
 @keyframes hero-gradient-shift {
   0%   { background-position: 0%   center; }
   50%  { background-position: 100% center; }
   100% { background-position: 0%   center; }
 }
-
-/* Stats count pop */
 @keyframes hero-stat-pop {
   from { opacity: 0; transform: scale(0.72) translateY(14px); }
   to   { opacity: 1; transform: scale(1)    translateY(0);    }
 }
-
-/* Card 3D entrance */
 @keyframes hero-card-3d {
   from { opacity: 0; transform: perspective(900px) rotateY(18deg) rotateX(6deg) translateY(40px); }
   to   { opacity: 1; transform: perspective(900px) rotateY(0deg)  rotateX(0deg) translateY(0);   }
 }
-
-/* Card idle hover rock */
 @keyframes hero-card-rock {
   0%,100% { transform: perspective(900px) rotateY(0deg)    rotateX(0deg);   }
   25%     { transform: perspective(900px) rotateY(1.5deg)  rotateX(-0.8deg);}
   75%     { transform: perspective(900px) rotateY(-1.5deg) rotateX(0.8deg); }
 }
-
-/* Floating badge */
 @keyframes hero-float {
   0%,100% { transform: translateY(0);    }
   50%     { transform: translateY(-9px); }
@@ -109,47 +88,29 @@
   0%,100% { transform: translateY(0);    }
   50%     { transform: translateY(-6px); }
 }
-
-/* Pulsing dot */
 @keyframes hero-dot-ping {
-  0%,100% { opacity: 0.3; transform: scale(1);   }
+  0%,100% { opacity: 0.3; transform: scale(1);    }
   50%     { opacity: 1;   transform: scale(1.45); }
 }
-
-/* CTA glow */
 @keyframes hero-glow {
-  0%,100% { box-shadow: 0 16px 40px rgba(245,158,11,0.30); }
-  50%     { box-shadow: 0 20px 60px rgba(245,158,11,0.58), 0 0 35px rgba(245,158,11,0.28); }
+  0%,100% { box-shadow: 0 16px 40px rgba(232,100,42,0.35); }
+  50%     { box-shadow: 0 20px 60px rgba(232,100,42,0.60), 0 0 35px rgba(232,100,42,0.30); }
 }
-
-/* Border pulse */
 @keyframes hero-border-pulse {
-  0%,100% { border-color: rgba(245,158,11,0.20); }
-  50%     { border-color: rgba(245,158,11,0.60); }
+  0%,100% { border-color: rgba(232,100,42,0.30); }
+  50%     { border-color: rgba(232,100,42,0.70); }
 }
-
-/* Ticker scroll */
 @keyframes hero-ticker {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
-/* ── Utility classes ──────────────────────────────────────── */
+/* ── Utility classes ─────────────────────────────────────── */
+.hero-bg-layer      { animation: hero-bg-drift   18s ease-in-out infinite; will-change: transform; }
+.hero-spotlight     { animation: hero-spotlight   9s ease-in-out 2s infinite; }
+.hero-sky-shimmer   { animation: hero-sky-shimmer 5s ease-in-out infinite; }
 
-.hero-bg-layer {
-  animation: hero-bg-drift 18s ease-in-out infinite;
-  will-change: transform;
-}
-
-.hero-spotlight {
-  animation: hero-spotlight 9s ease-in-out 2s infinite;
-}
-
-.hero-sky-shimmer {
-  animation: hero-sky-shimmer 5s ease-in-out infinite;
-}
-
-.hero-animate-badge  { animation: hero-fade-left  0.7s cubic-bezier(0.22,1,0.36,1) 0.1s  both; }
+.hero-animate-badge  { animation: hero-fade-left  0.7s cubic-bezier(0.22,1,0.36,1) 0.10s both; }
 .hero-animate-h1a    { animation: hero-fade-up    0.8s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
 .hero-animate-h1b    { animation: hero-fade-up    0.8s cubic-bezier(0.22,1,0.36,1) 0.42s both; }
 .hero-animate-sub    { animation: hero-fade-up    0.8s cubic-bezier(0.22,1,0.36,1) 0.58s both; }
@@ -158,12 +119,13 @@
 .hero-animate-stat-2 { animation: hero-stat-pop   0.6s cubic-bezier(0.22,1,0.36,1) 1.00s both; }
 .hero-animate-stat-3 { animation: hero-stat-pop   0.6s cubic-bezier(0.22,1,0.36,1) 1.12s both; }
 
-.hero-dot-ping       { animation: hero-dot-ping   2.2s ease-in-out                 0s    infinite; }
-.hero-glow-btn       { animation: hero-glow       2.6s ease-in-out                 0s    infinite; }
-.hero-border-pulse   { animation: hero-border-pulse 3s ease-in-out                 0s    infinite; }
+.hero-dot-ping       { animation: hero-dot-ping     2.2s ease-in-out 0s    infinite; }
+.hero-glow-btn       { animation: hero-glow          2.6s ease-in-out 0s    infinite; }
+.hero-border-pulse   { animation: hero-border-pulse  3.0s ease-in-out 0s    infinite; }
 
+/* Red → orange animated gradient text */
 .hero-grad-text {
-  background-image: linear-gradient(90deg, #f59e0b 0%, #fde68a 35%, #fb7185 65%, #f59e0b 100%);
+  background-image: linear-gradient(90deg, #C63A2B 0%, #F28C45 35%, #E8642A 65%, #C63A2B 100%);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -171,9 +133,5 @@
   animation: hero-gradient-shift 4s linear infinite;
 }
 
-.hero-ticker-track {
-  animation: hero-ticker 30s linear infinite;
-}
-.hero-ticker-track:hover {
-  animation-play-state: paused;
-}
+.hero-ticker-track { animation: hero-ticker 30s linear infinite; }
+.hero-ticker-track:hover { animation-play-state: paused; }

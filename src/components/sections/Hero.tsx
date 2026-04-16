@@ -96,15 +96,15 @@ export function Hero() {
           }}
         />
 
-        {/* deep cinematic overlay — preserves readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/65 to-bg/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-bg/40" />
+        {/* deep cinematic overlay — red-orange brand gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a0800]/92 via-[#C63A2B]/60 to-[#F28C45]/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a0800]/85 via-transparent to-[#1a0800]/40" />
 
         {/* moving spotlight sweep */}
         <div className="hero-spotlight absolute inset-y-0 w-[220px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         {/* sky shimmer haze */}
-        <div className="hero-sky-shimmer absolute inset-0 bg-gradient-to-b from-amber-400/8 via-transparent to-transparent" />
+        <div className="hero-sky-shimmer absolute inset-0 bg-gradient-to-b from-orange-400/8 via-transparent to-transparent" />
       </div>
 
       {/* ════════════════════════════════════════════
@@ -117,12 +117,12 @@ export function Hero() {
           transition: "transform 0.18s linear",
         }}
       >
-        {/* gold orb top-left */}
-        <div className="absolute -left-32 top-12 h-[480px] w-[480px] rounded-full bg-amber-400/12 blur-[120px]" />
-        {/* pink orb top-right */}
-        <div className="absolute -right-28 top-24 h-[380px] w-[380px] rounded-full bg-rose-400/10 blur-[100px]" />
-        {/* blue orb bottom */}
-        <div className="absolute bottom-0 left-1/2 h-[260px] w-[700px] -translate-x-1/2 rounded-full bg-blue-400/7 blur-[90px]" />
+        {/* orange orb top-left */}
+        <div className="absolute -left-32 top-12 h-[480px] w-[480px] rounded-full bg-orange-500/15 blur-[120px]" />
+        {/* red orb top-right */}
+        <div className="absolute -right-28 top-24 h-[380px] w-[380px] rounded-full bg-red-600/10 blur-[100px]" />
+        {/* green orb bottom */}
+        <div className="absolute bottom-0 left-1/2 h-[260px] w-[700px] -translate-x-1/2 rounded-full bg-emerald-400/8 blur-[90px]" />
 
         {/* floating ambient dots */}
         {[
@@ -165,7 +165,7 @@ export function Hero() {
           <div className="lg:col-span-8">
 
             {/* location badge */}
-            <div className="hero-animate-badge inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 backdrop-blur-sm">
+            <div className="hero-animate-badge inline-flex items-center gap-2 rounded-full border border-orange-300/40 bg-orange-500/15 px-4 py-1.5 backdrop-blur-sm">
               <span className="hero-dot-ping h-1.5 w-1.5 rounded-full bg-accent" />
               <span className="text-[11px] font-extrabold tracking-[0.14em] text-accent">
                 TAMPA BAY &nbsp;•&nbsp; BUY &nbsp;•&nbsp; SELL &nbsp;•&nbsp; INVEST
@@ -291,7 +291,7 @@ export function Hero() {
               ].map((s, i) => (
                 <div
                   key={i}
-                  className={`${s.cls} relative overflow-hidden rounded-2xl border border-white/15 bg-black/30 p-4 backdrop-blur-md`}
+                  className={`${s.cls} relative overflow-hidden rounded-2xl border border-white/20 bg-black/40 p-4 backdrop-blur-md`}
                 >
                   {/* inner shimmer sweep */}
                   <div className="hero-spotlight absolute inset-0 bg-gradient-to-r from-transparent via-white/6 to-transparent" />
@@ -308,9 +308,9 @@ export function Hero() {
       {/* ════════════════════════════════════════════
           TICKER STRIP
           ════════════════════════════════════════════ */}
-      <div className="relative overflow-hidden border-t border-white/10 bg-black/30 py-3 backdrop-blur-md">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg to-transparent" />
+      <div className="relative overflow-hidden border-t border-white/10 bg-black/40 py-3 backdrop-blur-md">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#1a0800]/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#1a0800]/80 to-transparent" />
         <div className="hero-ticker-track flex w-max gap-0">
           {[...TICKER, ...TICKER].map((item, i) => (
             <span key={i} className="flex items-center gap-4 px-6 text-[11px] font-extrabold tracking-[0.13em] uppercase text-white/40">

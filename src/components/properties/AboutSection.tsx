@@ -26,28 +26,24 @@ export function AboutSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            {/* decorative background blobs */}
+            {/* decorative blobs */}
             <div className="absolute -left-10 -top-10 h-48 w-48 rounded-full bg-accent/10 blur-3xl" />
-            <div className="absolute -bottom-10 -right-5 h-40 w-40 rounded-full bg-accent/8 blur-3xl" />
+            <div className="absolute -bottom-10 -right-5 h-40 w-40 rounded-full bg-accent-2/8 blur-3xl" />
 
-            {/* the creative house-frame image */}
-            <div className="relative">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.5 }}
-                className="relative overflow-hidden rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
-              >
-                <Image
-                  src="/about-creative.jpg"
-                  alt="Welcome To Properties – creative house frame"
-                  width={560}
-                  height={480}
-                  className="h-auto w-full object-cover"
-                  priority
-                />
-              </motion.div>
-
-            </div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="relative overflow-hidden rounded-3xl border border-black/8 shadow-[var(--shadow-elevated)]"
+            >
+              <Image
+                src="/about-creative.jpg"
+                alt="Welcome To Properties"
+                width={560}
+                height={480}
+                className="h-auto w-full object-cover"
+                priority
+              />
+            </motion.div>
           </motion.div>
 
           {/* ── RIGHT – copy ─────────────────────────────────────── */}
@@ -64,13 +60,13 @@ export function AboutSection() {
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-text sm:text-4xl lg:text-5xl">
               Welcome To Properties
             </h2>
+            <div className="mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-[#C63A2B] to-[#F28C45]" />
 
             <p className="mt-5 text-sm leading-relaxed text-muted sm:text-base">
               It is a long established fact that a reader will be distracted by the readable content of a
               page when looking at layout the point of using Lorem Ipsum is its normal distribution of letters.
             </p>
 
-            {/* bullet list */}
             <ul className="mt-7 space-y-3.5">
               {BULLETS.map((b) => (
                 <li key={b} className="flex items-center gap-3 text-sm text-muted">
@@ -80,29 +76,25 @@ export function AboutSection() {
               ))}
             </ul>
 
-            {/* stats circles + CTA */}
+            {/* stat circles + CTA */}
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              {/* 30k+ circle */}
-              <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-2 border-white/20 bg-surface-2">
-                <span className="text-lg font-extrabold text-text">30k+</span>
+              <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-2 border-accent/20 bg-accent/5">
+                <span className="text-lg font-extrabold text-accent">30k+</span>
                 <span className="mt-0.5 text-center text-[9px] font-bold leading-tight text-muted">
                   Satisfied<br />Client
                 </span>
               </div>
-
-              {/* 700+ circle */}
-              <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-2 border-white/20 bg-surface-2">
-                <span className="text-lg font-extrabold text-text">700+</span>
+              <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-2 border-accent-2/25 bg-accent-2/8">
+                <span className="text-lg font-extrabold text-accent-2">700+</span>
                 <span className="mt-0.5 text-center text-[9px] font-bold leading-tight text-muted">
                   Properties<br />Sold
                 </span>
               </div>
 
-              {/* Explore More button */}
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 rounded-full bg-surface-2 px-7 py-3.5 text-sm font-extrabold text-text ring-1 ring-white/15 transition hover:bg-accent hover:text-accent-ink hover:ring-accent"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-text px-7 py-3.5 text-sm font-extrabold text-surface shadow-sm transition hover:bg-accent hover:border-accent hover:text-white"
                 >
                   <Home className="h-4 w-4" />
                   Explore More

@@ -26,9 +26,9 @@ export function PropertiesHero() {
           backgroundPosition: "center top",
         }}
       />
-      {/* overlays */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-bg/80 via-bg/55 to-bg/95" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-bg/70 via-transparent to-transparent" />
+      {/* overlays — red-orange brand gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1a0800]/92 via-[#C63A2B]/60 to-[#F28C45]/25" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1a0800]/90 via-transparent to-[#1a0800]/40" />
 
       {/* ── Headline area ────────────────────────────────────────── */}
       <div className="mx-auto w-full max-w-6xl flex-1 px-4 pt-24 sm:px-6 sm:pt-28">
@@ -68,7 +68,7 @@ export function PropertiesHero() {
         transition={{ delay: 0.4, duration: 0.7 }}
       >
         {/* glass card */}
-        <div className="overflow-hidden rounded-t-3xl border border-white/15 bg-surface/80 shadow-[0_-10px_60px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
+        <div className="overflow-hidden rounded-t-3xl border border-white/20 bg-black/50 shadow-[0_-10px_60px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
 
           {/* Tabs */}
           <div className="flex border-b border-white/10">

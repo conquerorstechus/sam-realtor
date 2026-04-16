@@ -1,30 +1,30 @@
-/* Design tokens: semantic colors — matched to Tampa Realty Pros logo */
+/* Design tokens — Tampa Realty Pros brand: red-orange + green on warm white */
 
 :root {
   --radius-xl: 1.25rem;
   --radius-2xl: 1.75rem;
-  --shadow-elevated: 0 25px 55px rgba(0, 0, 0, 0.45);
-  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.25);
-  --ring-focus: 0 0 0 3px rgba(232, 100, 42, 0.45);
+  --shadow-elevated: 0 25px 55px rgba(0, 0, 0, 0.14);
+  --shadow-soft:     0 8px  24px rgba(0, 0, 0, 0.08);
+  --ring-focus:      0 0 0 3px rgba(232, 100, 42, 0.40);
 }
 
 @theme {
-  /* Surfaces */
-  --color-bg: #070b14;
-  --color-surface: #0f172a;
-  --color-surface-2: #111c33;
-  --color-border: rgba(255, 255, 255, 0.12);
+  /* ── Surfaces (warm light) ─────────────────────────────── */
+  --color-bg:        #FAF7F4;
+  --color-surface:   #FFFFFF;
+  --color-surface-2: #F3EEE9;
+  --color-border:    rgba(0, 0, 0, 0.09);
 
-  /* Text */
-  --color-text: #f8fafc;
-  --color-muted: #94a3b8;
+  /* ── Text ──────────────────────────────────────────────── */
+  --color-text:  #1C1917;
+  --color-muted: #78716C;
 
-  /* Accents — logo orange-red + logo green */
-  --color-accent:     #E8642A;   /* orange-red  (house icon) */
-  --color-accent-2:   #1E9B6A;   /* emerald green (logo text) */
-  --color-accent-ink: #ffffff;   /* white text on accent buttons */
+  /* ── Brand accents ─────────────────────────────────────── */
+  --color-accent:     #E8642A;   /* orange-red — primary CTA + hero */
+  --color-accent-2:   #1FA463;   /* emerald green — highlights + links */
+  --color-accent-ink: #FFFFFF;   /* white text on accent backgrounds */
 
-  /* Semantic */
-  --color-success: #1E9B6A;
-  --color-danger:  #ef4444;
+  /* ── Semantic ──────────────────────────────────────────── */
+  --color-success: #1FA463;
+  --color-danger:  #DC2626;
 }

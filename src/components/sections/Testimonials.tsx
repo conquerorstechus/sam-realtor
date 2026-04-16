@@ -29,7 +29,7 @@ export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) 
           </p>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-[var(--radius-2xl)] border border-white/10 bg-gradient-to-br from-surface to-surface-2 p-8 shadow-[var(--shadow-elevated)] sm:p-10">
+        <div className="mt-10 overflow-hidden rounded-[var(--radius-2xl)] border border-black/8 bg-surface p-8 shadow-[var(--shadow-elevated)] sm:p-10">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
             <blockquote className="max-w-3xl text-lg font-semibold leading-relaxed text-text sm:text-xl">
               "{active.quote}"
@@ -45,14 +45,14 @@ export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) 
                 <button
                   type="button"
                   onClick={prev}
-                  className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-extrabold text-text hover:bg-white/10"
+                  className="rounded-xl border border-black/10 bg-black/5 px-4 py-2 text-sm font-extrabold text-text hover:bg-black/10"
                 >
                   Prev
                 </button>
                 <button
                   type="button"
                   onClick={next}
-                  className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-extrabold text-text hover:bg-white/10"
+                  className="rounded-xl border border-black/10 bg-black/5 px-4 py-2 text-sm font-extrabold text-text hover:bg-black/10"
                 >
                   Next
                 </button>
@@ -69,7 +69,7 @@ export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) 
                 className={`rounded-full px-3 py-1 text-[11px] font-extrabold ring-1 ${
                   i === idx
                     ? "bg-accent text-accent-ink ring-accent/40"
-                    : "bg-white/5 text-muted ring-white/10 hover:bg-white/10"
+                    : "bg-black/5 text-muted ring-black/10 hover:bg-black/10"
                 }`}
               >
                 {i + 1}

@@ -16,7 +16,7 @@ export function ContactCta() {
               handler in one place.
             </p>
 
-            <div className="mt-8 rounded-[var(--radius-2xl)] border border-white/10 bg-white/[0.03] p-6">
+            <div className="mt-8 rounded-[var(--radius-2xl)] border border-black/8 bg-surface-2 p-6">
               <div className="text-sm font-extrabold text-text">What you should include</div>
               <ul className="mt-3 space-y-2 text-sm text-muted">
                 <li>- Move timeline (30/60/90+ days)</li>
