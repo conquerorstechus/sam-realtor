@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/navigation/Footer";
 import { Header } from "@/components/navigation/Header";
-import { MobileStickyCta } from "@/components/navigation/MobileStickyCta";
 import { organizationJsonLd } from "@/lib/seo/jsonld";
 import { site } from "@/lib/seo/site";
 
@@ -50,9 +49,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <div className="pb-24 sm:pb-0">{children}</div>
+        <div className="pb-8 sm:pb-10">{children}</div>
         <Footer />
-        <MobileStickyCta />
       </body>
     </html>
   );
