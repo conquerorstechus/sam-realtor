@@ -84,7 +84,7 @@ export default function AboutPage() {
               </div>
 
               <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted sm:text-base">
-                Bay Crest Realty Group is a high-energy Tampa Bay team built on three things:
+                Tampa Realty Pros is a high-energy Tampa Bay team built on three things:
                 speed, strategy, and obsessive follow-through. We don't "help you buy a house" —
                 we run the campaign.
               </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
               <div className="relative z-10 h-[380px] w-[380px] overflow-hidden rounded-full border-4 border-accent/30 shadow-[0_30px_70px_rgba(0,0,0,0.55)] sm:h-[440px] sm:w-[440px]">
                 <Image
                   src="/about-agent.jpg"
-                  alt="Bay Crest Realty agent"
+                  alt="Tampa Realty Pros agent"
                   fill
                   sizes="(max-width: 640px) 380px, 440px"
                   className="object-cover object-top"

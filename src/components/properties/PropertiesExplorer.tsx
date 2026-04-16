@@ -384,7 +384,7 @@ export function PropertiesExplorer({ properties }: { properties: Property[] }) {
                 <span className="text-accent">Properties</span>
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted">
-                Bay Crest Realty Group is a results-driven team with a sharp eye for detail, a flair
+                Tampa Realty Pros is a results-driven team with a sharp eye for detail, a flair
                 for creative marketing, and an obsession with helping clients find — and win — their
                 perfect home across Tampa Bay.
               </p>

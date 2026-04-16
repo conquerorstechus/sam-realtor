@@ -2,18 +2,32 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Key } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { Container } from "@/components/ui/Container";
 
+function NavItemKey({ active }: { active: boolean }) {
+  return (
+    <Key
+      className={`h-4 w-4 shrink-0 stroke-[2.25] transition ${
+        active
+          ? "text-[#C45A12] drop-shadow-[0_1px_2px_rgba(180,83,9,0.35)]"
+          : "text-amber-600/90 drop-shadow-[0_1px_2px_rgba(15,23,42,0.12)] group-hover:text-amber-700"
+      }`}
+      aria-hidden
+    />
+  );
+}
+
 const links = [
-  { href: "/",           label: "Home"       },
-  { href: "/about",      label: "About"      },
-  { href: "/services",   label: "Services"   },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
   { href: "/properties", label: "Properties" },
-  { href: "/buyer",      label: "Buyer"      },
-  { href: "/seller",     label: "Seller"     },
-  { href: "/contact",    label: "Contact"    },
+  { href: "/buyer", label: "Buyer" },
+  { href: "/seller", label: "Seller" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
@@ -24,17 +38,15 @@ export function Header() {
     const exact = links.find((l) => l.href === pathname)?.href;
     if (exact) return exact;
     if (pathname.startsWith("/properties")) return "/properties";
-    if (pathname.startsWith("/buyer"))      return "/buyer";
-    if (pathname.startsWith("/seller"))     return "/seller";
-    if (pathname.startsWith("/services"))   return "/services";
+    if (pathname.startsWith("/buyer")) return "/buyer";
+    if (pathname.startsWith("/seller")) return "/seller";
+    if (pathname.startsWith("/services")) return "/services";
     return pathname;
   }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/8 bg-white/90 shadow-sm backdrop-blur-xl">
       <Container className="flex items-center justify-between py-3">
-
-        {/* ── Logo ──────────────────────────────────────────── */}
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo.png"
@@ -54,7 +66,6 @@ export function Header() {
           </div>
         </Link>
 
-        {/* ── Desktop nav ───────────────────────────────────── */}
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="Primary">
           {links.map((l) => {
             const active = activeHref === l.href;
@@ -62,25 +73,24 @@ export function Header() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`rounded-xl px-3.5 py-2 text-sm font-semibold transition ${
-                  active
-                    ? "bg-accent/10 text-accent"
-                    : "text-muted hover:bg-black/5 hover:text-text"
+                className={`group inline-flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold transition ${
+                  active ? "bg-accent/10 text-accent" : "text-muted hover:bg-black/5 hover:text-text"
                 }`}
               >
+                <NavItemKey active={active} />
                 {l.label}
               </Link>
             );
           })}
           <Link
             href="/contact"
-            className="ml-3 rounded-xl bg-gradient-to-r from-[#C63A2B] to-[#F28C45] px-5 py-2.5 text-sm font-extrabold text-white shadow-[0_8px_25px_rgba(232,100,42,0.30)] transition hover:brightness-110 active:scale-95"
+            className="ml-3 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#C63A2B] to-[#F28C45] px-5 py-2.5 text-sm font-extrabold text-white shadow-[0_8px_25px_rgba(232,100,42,0.30)] transition hover:brightness-110 active:scale-95"
           >
+            <Key className="h-4 w-4 shrink-0 stroke-[2.25] text-white/95 drop-shadow-sm" aria-hidden />
             Book a Call
           </Link>
         </nav>
 
-        {/* ── Mobile hamburger ──────────────────────────────── */}
         <button
           type="button"
           suppressHydrationWarning
@@ -93,26 +103,30 @@ export function Header() {
         </button>
       </Container>
 
-      {/* ── Mobile menu ───────────────────────────────────────── */}
       {open && (
         <div id="mobile-nav" className="border-t border-black/8 bg-white md:hidden">
           <Container className="py-3">
             <div className="flex flex-col gap-1">
-              {links.map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-3 text-sm font-semibold text-text hover:bg-black/5"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              {links.map((l) => {
+                const active = activeHref === l.href;
+                return (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="group flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-text hover:bg-black/5"
+                  >
+                    <NavItemKey active={active} />
+                    {l.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded-xl bg-gradient-to-r from-[#C63A2B] to-[#F28C45] px-4 py-3 text-center text-sm font-extrabold text-white"
+                className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C63A2B] to-[#F28C45] px-4 py-3 text-sm font-extrabold text-white"
               >
+                <Key className="h-4 w-4 shrink-0 stroke-[2.25] text-white/95" aria-hidden />
                 Book a Call
               </Link>
             </div>

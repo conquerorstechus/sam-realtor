@@ -135,3 +135,20 @@
 
 .hero-ticker-track { animation: hero-ticker 30s linear infinite; }
 .hero-ticker-track:hover { animation-play-state: paused; }
+
+/* Leaflet — custom DivIcon + popup polish */
+.trp-leaflet-marker-root {
+  background: none !important;
+  border: none !important;
+}
+.leaflet-container {
+  background: #e7e5e4;
+  font-family: inherit;
+}
+.trp-leaflet-popup-wrap .leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.18);
+}
+.trp-leaflet-popup-wrap .leaflet-popup-tip {
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+}
