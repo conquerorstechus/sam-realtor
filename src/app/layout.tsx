@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = organizationJsonLd();
 
   return (
-    <html lang="en" className={jakarta.variable}>
+    <html lang="en" className={jakarta.variable} data-scroll-behavior="smooth">
       <body suppressHydrationWarning className={`${jakarta.className} min-h-dvh`}>
         <script
           type="application/ld+json"
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <main className="pb-24 sm:pb-0">{children}</main>
+        <div className="pb-24 sm:pb-0">{children}</div>
         <Footer />
         <MobileStickyCta />
       </body>

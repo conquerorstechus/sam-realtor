@@ -1,11 +1,11 @@
-/* Design tokens: semantic colors for Tailwind v4 + shared CSS variables */
+/* Design tokens: semantic colors — matched to Tampa Realty Pros logo */
 
 :root {
   --radius-xl: 1.25rem;
   --radius-2xl: 1.75rem;
   --shadow-elevated: 0 25px 55px rgba(0, 0, 0, 0.45);
   --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.25);
-  --ring-focus: 0 0 0 3px rgba(251, 191, 36, 0.45);
+  --ring-focus: 0 0 0 3px rgba(232, 100, 42, 0.45);
 }
 
 @theme {
@@ -19,12 +19,12 @@
   --color-text: #f8fafc;
   --color-muted: #94a3b8;
 
-  /* Accents (high-energy) */
-  --color-accent: #f59e0b;
-  --color-accent-2: #fb7185;
-  --color-accent-ink: #0b1220;
+  /* Accents — logo orange-red + logo green */
+  --color-accent:     #E8642A;   /* orange-red  (house icon) */
+  --color-accent-2:   #1E9B6A;   /* emerald green (logo text) */
+  --color-accent-ink: #ffffff;   /* white text on accent buttons */
 
   /* Semantic */
-  --color-success: #22c55e;
-  --color-danger: #ef4444;
+  --color-success: #1E9B6A;
+  --color-danger:  #ef4444;
 }
