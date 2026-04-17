@@ -10,14 +10,23 @@ export function Hero() {
     <section className="relative w-full overflow-hidden bg-[#F2EDE8]" aria-label="Hero banner">
       <div className="relative mx-auto w-full max-w-[1920px]">
         <div className="relative aspect-[16/10] min-h-[min(88dvh,900px)] w-full sm:aspect-[16/9]">
-          <Image
-            src="/hero-home-banner.png"
-            alt="Luxury home with pool and Tampa Bay skyline at golden hour."
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
+          {/* Sharp source: high quality + no mix-blend (those stack soft). Light contrast/hue only. */}
+          <div className="absolute inset-0 isolate">
+            <Image
+              src="/hero-home-banner.png"
+              alt="Luxury home with pool and Tampa Bay skyline at golden hour."
+              fill
+              priority
+              quality={95}
+              sizes="100vw"
+              className="object-cover object-center [transform:translateZ(0)] [filter:brightness(1.02)_contrast(1.12)_saturate(1.05)_hue-rotate(-3deg)]"
+            />
+            {/* Tiny warm veil — opacity only, no blend mode, keeps edges crisp */}
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-amber-900/[0.06]"
+              aria-hidden
+            />
+          </div>
 
           {/* Left scrim so headline and buttons stay readable on any photo */}
           <div
