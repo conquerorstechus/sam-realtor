@@ -104,7 +104,33 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-
+@keyframes hero-doorway-light {
+  0%, 18% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.55);
+  }
+  46% {
+    opacity: 0.48;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.18);
+  }
+}
+@keyframes hero-bird-flight {
+  0%, 32% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.32) rotate(var(--bird-start-rotate));
+  }
+  40% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--bird-x), var(--bird-y), 0) scale(var(--bird-scale)) rotate(var(--bird-end-rotate));
+  }
+}
 /* ── Utility classes ─────────────────────────────────────── */
 .hero-bg-layer      { animation: hero-bg-drift   18s ease-in-out infinite; will-change: transform; }
 .hero-spotlight     { animation: hero-spotlight   9s ease-in-out 2s infinite; }
@@ -135,6 +161,85 @@
 
 .hero-ticker-track { animation: hero-ticker 30s linear infinite; }
 .hero-ticker-track:hover { animation-play-state: paused; }
+
+.hero-door-scene {
+  pointer-events: none;
+  position: absolute;
+  left: 55.6%;
+  top: 50%;
+  z-index: 2;
+  width: clamp(64px, 9.8vw, 150px);
+  aspect-ratio: 0.52;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+.hero-doorway-light {
+  position: absolute;
+  left: 39%;
+  top: 30%;
+  width: 118%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255, 248, 214, 0.88) 0 18%, rgba(255, 191, 85, 0.4) 44%, transparent 72%);
+  mix-blend-mode: screen;
+  filter: blur(12px);
+  animation: hero-doorway-light 10s ease-in-out infinite;
+}
+.hero-bird-flock {
+  position: absolute;
+  left: 42%;
+  top: 28%;
+  width: 1px;
+  height: 1px;
+}
+.hero-bird {
+  --bird-x: -240px;
+  --bird-y: -120px;
+  --bird-scale: 1;
+  --bird-start-rotate: 0deg;
+  --bird-end-rotate: -8deg;
+  position: absolute;
+  width: clamp(34px, 4vw, 68px);
+  color: rgba(18, 16, 14, 0.92);
+  filter: drop-shadow(0 2px 5px rgba(255, 216, 150, 0.2));
+  transform-origin: center;
+  animation: hero-bird-flight 10s cubic-bezier(0.22, 0.75, 0.24, 1) infinite;
+}
+.hero-bird svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+.hero-bird-1 { --bird-x: -17vw; --bird-y: -13vw; --bird-scale: 0.94; animation-delay: 2.1s; }
+.hero-bird-2 { --bird-x: -10vw; --bird-y: -18vw; --bird-scale: 0.72; --bird-end-rotate: 12deg; animation-delay: 2.45s; }
+.hero-bird-3 { --bird-x: -23vw; --bird-y: -7vw;  --bird-scale: 1.08; --bird-end-rotate: -14deg; animation-delay: 2.8s; }
+.hero-bird-4 { --bird-x: -4vw;  --bird-y: -15vw; --bird-scale: 0.62; --bird-end-rotate: 18deg; animation-delay: 3.15s; }
+.hero-bird-5 { --bird-x: -14vw; --bird-y: -4vw;  --bird-scale: 0.78; --bird-end-rotate: -4deg; animation-delay: 3.5s; }
+
+@media (max-width: 640px) {
+  .hero-door-scene {
+    left: 57%;
+    top: 49%;
+    width: clamp(44px, 13vw, 76px);
+  }
+  .hero-bird-1 { --bird-x: -32vw; --bird-y: -22vw; }
+  .hero-bird-2 { --bird-x: -20vw; --bird-y: -30vw; }
+  .hero-bird-3 { --bird-x: -38vw; --bird-y: -13vw; }
+  .hero-bird-4 { --bird-x: -10vw; --bird-y: -26vw; }
+  .hero-bird-5 { --bird-x: -24vw; --bird-y: -8vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-doorway-light,
+  .hero-bird {
+    animation: none;
+  }
+  .hero-bird {
+    opacity: 0;
+  }
+}
 
 /* Leaflet — custom DivIcon + popup polish */
 .trp-leaflet-marker-root {

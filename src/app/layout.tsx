@@ -12,6 +12,35 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "600", "700", "800"],
 });
 
+const browserExtensionAttributeCleanup = `
+(() => {
+  const blockedAttributes = ["fpdprocessid"];
+  const cleanNode = (node) => {
+    if (!(node instanceof Element)) return;
+    for (const attr of blockedAttributes) node.removeAttribute(attr);
+    node.querySelectorAll(blockedAttributes.map((attr) => "[" + attr + "]").join(",")).forEach((child) => {
+      for (const attr of blockedAttributes) child.removeAttribute(attr);
+    });
+  };
+
+  cleanNode(document.documentElement);
+
+  new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === "attributes" && blockedAttributes.includes(mutation.attributeName || "")) {
+        cleanNode(mutation.target);
+      }
+      for (const node of mutation.addedNodes) cleanNode(node);
+    }
+  }).observe(document.documentElement, {
+    attributes: true,
+    childList: true,
+    subtree: true,
+    attributeFilter: blockedAttributes,
+  });
+})();
+`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -41,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = organizationJsonLd();
 
   return (
-    <html lang="en" className={jakarta.variable} data-scroll-behavior="smooth">
+    <html lang="en" suppressHydrationWarning className={jakarta.variable} data-scroll-behavior="smooth">
       <body suppressHydrationWarning className={`${jakarta.className} min-h-dvh`}>
         <script
           type="application/ld+json"
@@ -51,6 +80,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <div className="pb-8 sm:pb-10">{children}</div>
         <Footer />
+        <script
+          // Browser extensions can inject attributes before React hydrates, which causes the dev overlay.
+          dangerouslySetInnerHTML={{ __html: browserExtensionAttributeCleanup }}
+        />
       </body>
     </html>
   );

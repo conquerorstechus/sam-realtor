@@ -26,7 +26,11 @@ export function Button({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
+    <Link
+      href={href}
+      suppressHydrationWarning
+      className={`${base} ${variants[variant]} ${className}`}
+    >
       {children}
     </Link>
   );

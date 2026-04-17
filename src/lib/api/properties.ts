@@ -8,11 +8,12 @@ function sleep(ms: number) {
 export async function getProperties(): Promise<Property[]> {
   // Simulate network latency for future API parity.
   await sleep(35);
-  return mockProperties;
+  return [...mockProperties].sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: "base" }));
 }
 
 export async function getFeaturedProperties(limit = 6): Promise<Property[]> {
   const featured = mockProperties.filter((p) => p.featured);
+  featured.sort((a, b) => b.priceUsd - a.priceUsd);
   return featured.slice(0, limit);
 }
 
@@ -22,5 +23,5 @@ export async function getPropertyBySlug(slug: string): Promise<Property | null> 
 }
 
 export async function getPropertySlugs(): Promise<string[]> {
-  return mockProperties.map((p) => p.slug);
+  return [...mockProperties].map((p) => p.slug).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
 }

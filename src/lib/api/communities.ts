@@ -7,7 +7,7 @@ function sleep(ms: number) {
 
 export async function getCommunities(): Promise<Community[]> {
   await sleep(35);
-  return mockCommunities;
+  return [...mockCommunities].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
 }
 
 export async function getCommunityBySlug(slug: string): Promise<Community | null> {
@@ -16,5 +16,5 @@ export async function getCommunityBySlug(slug: string): Promise<Community | null
 }
 
 export async function getCommunitySlugs(): Promise<string[]> {
-  return mockCommunities.map((c) => c.slug);
+  return [...mockCommunities].map((c) => c.slug).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
 }

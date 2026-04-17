@@ -7,5 +7,5 @@ function sleep(ms: number) {
 
 export async function getTestimonials(): Promise<Testimonial[]> {
   await sleep(25);
-  return mockTestimonials;
+  return [...mockTestimonials].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
 }
